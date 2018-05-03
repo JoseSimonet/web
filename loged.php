@@ -74,74 +74,45 @@
             </div>
         </section>
         
-        <div class="container" style="text-align: center; height: 70vh;">
-        
-        </div>
 
-<div class="container">
-  <div class="row">
-     <h2>Your Profile</h2>
-        
-        
-       <div class="col-md-7 ">
+<div class="container" style="text-align: center; height: 70vh;">
+  <div class="row">             
+       <div class="col-md-7" style ="margin: 5rem auto; border: 0.3rem solid #01A0AD; padding: 2rem; border-radius: 30px;">
 
-<div class="panel panel-default">
-  <div class="panel-heading">  <h4 >User Profile</h4></div>
-   <div class="panel-body">
-       
-    <div class="box box-info">
-        
-            <div class="box-body">
-                     <div class="col-sm-6">
+                     <div class="col-sm-12">
                      <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
                 
-                <input id="profile-image-upload" class="hidden" type="file">
-<div style="color:#999;" >click here to change profile image</div>
                 <!--Upload Image Js And Css-->
                      </div>
               <br>
                 <!-- /input-group -->
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12">
             <h4 style="color:#00b1b1;">Md. Ashiqur Rahman </h4></span>
               <span><p>Developer</p></span>            
             </div>
             <div class="clearfix"></div>
             <hr style="margin:5px 0 5px 0;">
     
-              
-<div class="col-sm-5 col-xs-6 title " >First Name:</div><div class="col-sm-7 col-xs-6 ">Md. Ashiqur</div>
+              <div class="container">
+  <div class="row">
+<div class="col-sm-6 col-xs-6 title" >First Name:</div><div class="col-sm-6 col-xs-6 ">Md. Ashiqur</div>
      <div class="clearfix"></div>
-<div class="bot-border"></div>
 
-<div class="col-sm-5 col-xs-6 title " >Last Name:</div><div class="col-sm-7"> Ashik</div>
+<div class="col-sm-6 col-xs-6 title " >Last Name:</div><div class="col-sm-6"> Ashik</div>
   <div class="clearfix"></div>
-<div class="bot-border"></div>
 
-<div class="col-sm-5 col-xs-6 title " >Date Of Birth:</div><div class="col-sm-7">11 Jun 1998</div>
+<div class="col-sm-6 col-xs-6 title " >Date Of Birth:</div><div class="col-sm-6">11 Jun 1998</div>
 
   <div class="clearfix"></div>
-<div class="bot-border"></div>
 
-<div class="col-sm-5 col-xs-6 title " >Email:</div><div class="col-sm-7">sample@sample.com</div>
-      
+<div class="col-sm-6 col-xs-6 title " >Email:</div><div class="col-sm-6">sample@sample.com</div>
 
  <div class="clearfix"></div>
-<div class="bot-border"></div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-    </div> 
-    </div>
-</div>  
-    <script>
-              $(function() {
-    $('#profile-image1').on('click', function() {
-        $('#profile-image-upload').click();
-    });
-});       
-              </script> 
+</div>
+</div>
+</div>
+
    </div>
 </div>
             
