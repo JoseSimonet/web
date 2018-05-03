@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
     <head>
         <title>
@@ -22,7 +22,7 @@
         <section class="bienvenidos">
             <header class="encabezado navbar-fixed-top" id="encabezado" role="banner">
                 <div class="container">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="index.php">
                         <img src="images/logoMYT.svg" alt="Logo del sitio">
                     </a>
                     <button aria-expanded="false" class="boton-buscar" data-target="#bloque-buscar" data-toggle="collapse" type="button">
@@ -44,27 +44,27 @@
                     <nav class="collapse" id="menu-principal">
                         <ul>
                             <li>
-                                <a href="index.html">
+                                <a href="index.php">
                                     Inicio
                                 </a>
                             </li>
                             <li class="active">
-                                <a href="nosotros.html">
+                                <a href="nosotros.php">
                                     Nosotros
                                 </a>
                             </li>
                             <li>
-                                <a href="servicios.html">
+                                <a href="servicios.php">
                                     Servicios
                                 </a>
                             </li>
                             <li>
-                                <a href="contacto.html">
+                                <a href="contacto.php">
                                     Contacto
                                 </a>
                             </li>
                             <li>
-                                <a href="login.html">
+                                <a href="login.php">
                                     Login
                                 </a>
                             </li>
@@ -87,7 +87,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 text-xs-right">
-                        <a href="index.html">
+                        <a href="index.php">
                             Inicio
                         </a>
                         » Nosotros

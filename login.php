@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php include("server.php") ?>
 <html lang="en">
     <head><title>MYT Manage Your Time</title>
         <meta charset="utf-8" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
@@ -18,7 +18,7 @@
         <section class="bienvenidos" style="height: 30vh;">
             <header class="encabezado navbar-fixed-top" role="banner" id="encabezado">
                 <div class="container">
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                         <img src="images/logoMYT.svg" alt="Logo del sitio">
                     </a>
                     <button type="button" class="boton-buscar" data-toggle="collapse" data-target="#bloque-buscar" aria-expanded="false">
@@ -34,11 +34,11 @@
                     </form>
                     <nav id="menu-principal" class="collapse">
                         <ul>
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            <li><a href="servicios.html">Servicios</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
-                            <li class="active"><a href="login.html">Login</a></li>
+                            <li><a href="index.php">Inicio</a></li>
+                            <li><a href="nosotros.php">Nosotros</a></li>
+                            <li><a href="servicios.php">Servicios</a></li>
+                            <li><a href="contacto.php">Contacto</a></li>
+                            <li class="active"><a href="login.php">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -54,7 +54,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 text-xs-right">
-                        <a href="index.html">Inicio</a> » Login
+                        <a href="index.php">Inicio</a> » Login
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                                 <a href="#" class="active" id="login-form-link">Iniciar sesión</a>
                             </div>
                             <div class="col-xs-6">
-                                <a href="#" id="register-form-link">Regístrate ahora</a>
+                                <a href="#" id="register-form-link">Registrarse</a>
                             </div>
                         </div>
                         <hr>
@@ -78,9 +78,10 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="" method="post" role="form" style="display: block;">
+                                <form id="login-form" action="login.php" method="post" role="form" style="display: block;">
+                                    <?php include('errors.php'); ?>
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
@@ -92,7 +93,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3" style="margin: auto;">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Iniciar sesión">
+                                                <input type="submit" name="login_user" id="login_user" tabindex="4" class="form-control btn btn-login" value="Iniciar sesión">
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +101,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="text-center">
-                                                    <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">¿Has olvidado tu contraseña?</a>
+                                                    <a href="#" tabindex="5" class="forgot-password">¿Has olvidado tu contraseña?</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -108,21 +109,21 @@
                                 </form>
                                 <form id="register-form" action="" method="post" role="form" style="display: none;">
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="<?php echo $username; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="<?php echo $email; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+                                        <input type="password" name="password_1" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar contraseña">
+                                        <input type="password" name="password_2" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar contraseña">
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3" style="margin: auto;">
-                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Crear cuenta">
+                                                <input type="submit" name="reg_user" id="reg_user" tabindex="4" class="form-control btn btn-register" value="Crear cuenta">
                                             </div>
                                         </div>
                                     </div>

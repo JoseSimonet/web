@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php 
+  session_start(); 
+?>
+
 <html lang="es">
     <head><title>MYT Manage Your Time</title>
         <meta charset="utf-8" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
@@ -18,7 +21,7 @@
         <section class="bienvenidos">
             <header class="encabezado navbar-fixed-top" role="banner" id="encabezado">
                 <div class="container">
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                         <img src="images/logoMYT.svg" alt="Logo del sitio">
                     </a>
                     <button type="button" class="boton-buscar" data-toggle="collapse" data-target="#bloque-buscar" aria-expanded="false">
@@ -34,11 +37,11 @@
                     </form>
                     <nav id="menu-principal" class="collapse">
                         <ul>
-                            <li class="active"><a href="index.html">Inicio</a></li>
-                            <li><a href="nosotros.html">Nosotros</a></li>
-                            <li><a href="servicios.html">Servicios</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li class="active"><a href="index.php">Inicio</a></li>
+                            <li><a href="nosotros.php">Nosotros</a></li>
+                            <li><a href="servicios.php">Servicios</a></li>
+                            <li><a href="contacto.php">Contacto</a></li>
+                            <li><a href="login.php">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -47,7 +50,7 @@
                 <div class="container">
                     <h1 class="display-4 wow bounceIn">Gestione el tiempo de su empresa</h1>
                     <p class="wow bounceIn" data-wow-delay=".3s">Un servicio personalizado según las necesidades y requerimientos de la empresa.</p>
-                    <a href="contacto.html" class="btn btn-primary btn-lg">Póngase en contacto</a>
+                    <a href="contacto.php" class="btn btn-primary btn-lg">Póngase en contacto</a>
                 </div>
             </div>
             <div class="flecha-bajar text-xs-center">
