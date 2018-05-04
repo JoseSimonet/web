@@ -73,7 +73,7 @@
         </section>
         <section class="tu-mejor-eleccion p-y-1">
             <div class="container">
-                <h2 class="h3 text-xs-center font-weight-bold">¿Porque elegir <span>ManageYourTime?</span></h2>
+                <h2 class="h3 text-xs-center font-weight-bold">¿Por qué elegir <span>ManageYourTime?</span></h2>
                 <p class="text-xs-center">
                     Gestión web y móvil para empresas
                 </p>

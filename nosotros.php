@@ -78,7 +78,7 @@
                     Nosotros
                     </h1>
                     <p class="wow bounceIn" data-wow-delay=".3s">
-                        ¿Quienes somos? y ¿Que hacemos?.
+                        ¿Quienes somos? y ¿Qué hacemos?
                     </p>
                 </div>
             </div>

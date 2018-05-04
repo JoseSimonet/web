@@ -147,7 +147,7 @@ body {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active:hover {
-  background-color: #F9B30E;
+  background-color: #005259;
   border-color: transparent; }
 
 .flecha-bajar a {
@@ -198,7 +198,7 @@ body {
 
 .tu-mejor-eleccion ul li .fa, .tu-mejor-eleccion ul li .fas {
   font-size: 2.3rem;
-  background: #F9B30E;
+  background: #005259;
   border-radius: 50%;
   width: 4.7rem;
   height: 4.7rem;
@@ -349,12 +349,12 @@ body {
   transition: all .5s ease; }
 
 .paginas-internas .panel .panel-heading a:hover {
-  background: #F9B30E;
-  color: #fff; }
+  background: #005259;
+  color: #01A0AD; }
 
 /*Estilos Página Servicios*/
 .paginas-internas .lista-servicios {
-  background: #F9B30E; }
+  background: #005259; }
 
 .paginas-internas .lista-servicios .item-servicios {
   background: #ffffff;
@@ -399,7 +399,7 @@ body {
   transition: all 0.1s linear; }
 
 .panel-login > .panel-heading a.active {
-  color: #F9B30E;
+  color: #005259;
   font-size: 18px; }
 
 .btn-login, .btn-register {
@@ -417,9 +417,9 @@ body {
 .btn-login:focus,
 .btn-register:hover,
 .btn-register:focus {
-  color: #fff;
-  background-color: #F9B30E;
-  border-color: #F9B30E; }
+  color: #01A0AD;
+  background-color: #005259;
+  border-color: #005259; }
 
   /*Estilos página de perfil*/
   input.hidden {

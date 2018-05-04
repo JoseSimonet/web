@@ -46,7 +46,7 @@
             <div class="texto-encabezado text-xs-center">
                 <div class="container">
                     <h1 class="display-4  wow bounceIn">Servicios</h1>
-                    <p class="wow bounceIn" data-wow-delay=".3s">Sistema de gestión de tiempo en la empresa.</p>
+                    <p class="wow bounceIn" data-wow-delay=".3s">Sistema de gestión de tiempo en la empresa</p>
                 </div>
             </div>
         </section>

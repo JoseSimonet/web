@@ -3,16 +3,13 @@
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
-  	header('location: loged.php');
+  	header('location: login.php');
   }
   if (isset($_GET['logout'])) {
   	session_destroy();
   	unset($_SESSION['username']);
-  	header("location: loged.php");
+  	header("location: login.php");
   }
-?>
-<?php 
-  session_start(); 
 ?>
 
 <html lang="en">
@@ -60,16 +57,13 @@
             <div class="texto-encabezado text-xs-center">
                 <div class="container">
                     <h1 class="display-4 wow bounceIn">Perfil</h1>
-                    <p class="wow bounceIn" data-wow-delay=".3s">Perfil de usuario.</p>
+                    <p class="wow bounceIn" data-wow-delay=".3s">Perfil de usuario</p>
                 </div>
             </div>
         </section>
         <section class="ruta p-y-1">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 text-xs-right">
-                        <a href="index.php">Inicio</a> » Perfil
-                    </div>
                 </div>
             </div>
         </section>
@@ -88,27 +82,25 @@
                 <!-- /input-group -->
             </div>
             <div class="col-sm-12">
-            <h4 style="color:#00b1b1;">Md. Ashiqur Rahman </h4></span>
-              <span><p>Developer</p></span>            
+            <h4 style="color:#00b1b1;"><?php echo $_SESSION['username']; ?></h4>         
             </div>
             <div class="clearfix"></div>
             <hr style="margin:5px 0 5px 0;">
     
               <div class="container">
   <div class="row">
-<div class="col-sm-6 col-xs-6 title" >First Name:</div><div class="col-sm-6 col-xs-6 ">Md. Ashiqur</div>
+<div class="col-sm-12 col-xs-6 title" >Nombre: <?php echo $_SESSION['name']; ?></div>
      <div class="clearfix"></div>
 
-<div class="col-sm-6 col-xs-6 title " >Last Name:</div><div class="col-sm-6"> Ashik</div>
+<div class="col-sm-12 col-xs-6 title " >Apellidos: <?php echo $_SESSION['surname']; ?></div>
   <div class="clearfix"></div>
 
-<div class="col-sm-6 col-xs-6 title " >Date Of Birth:</div><div class="col-sm-6">11 Jun 1998</div>
-
+<div class="col-sm-12 col-xs-6 title " >Fecha de nacimiento: <?php echo $_SESSION['birthday']; ?></div>
   <div class="clearfix"></div>
 
-<div class="col-sm-6 col-xs-6 title " >Email:</div><div class="col-sm-6">sample@sample.com</div>
-
+<div class="col-sm-12 col-xs-6 title " >Email: <?php echo $_SESSION['email']; ?></div>
  <div class="clearfix"></div>
+
 </div>
 </div>
 </div>

@@ -46,7 +46,7 @@
             <div class="texto-encabezado text-xs-center">
                 <div class="container">
                     <h1 class="display-4 wow bounceIn">Login</h1>
-                    <p class="wow bounceIn" data-wow-delay=".3s">Identificación de usuario.</p>
+                    <p class="wow bounceIn" data-wow-delay=".3s">Identificación de usuario</p>
                 </div>
             </div>
         </section>
@@ -60,7 +60,7 @@
             </div>
         </section>
         
-        <div class="container" style="text-align: center; height: 70vh;">
+        <div class="container" style="text-align: center;">
         <div class="row">
             <div class="col-md-6 col-md-offset-3" style="margin: 5rem auto;">
                 <div class="panel panel-login">
@@ -109,10 +109,22 @@
                                 </form>
                                 <form id="register-form" action="" method="post" role="form" style="display: none;">
                                     <div class="form-group">
+                                        <input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="surname" id="surname" tabindex="1" class="form-control" placeholder="Apellidos">
+                                    </div>
+                                    <div class="form-group">
                                         <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="<?php echo $username; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="<?php echo $email; ?>">
+                                        <input type="email" name="email_1" id="email" tabindex="1" class="form-control" placeholder="Correo electrónico" value="<?php echo $email_1; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email_2" id="confirm-email" tabindex="1" class="form-control" placeholder="Confirmar correo electrónico">
+                                    </div>
+                                    <div class="form-group">
+                                            <input type="date" name="birthday" tabindex="2" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password_1" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
