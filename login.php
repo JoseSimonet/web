@@ -1,4 +1,5 @@
-<?php include("server.php") ?>
+<?php include "server.php"?>
+
 <html lang="en">
     <head><title>MYT Manage Your Time</title>
         <meta charset="utf-8" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
@@ -59,7 +60,7 @@
                 </div>
             </div>
         </section>
-        
+
         <div class="container" style="text-align: center;">
         <div class="row">
             <div class="col-md-6 col-md-offset-3" style="margin: 5rem auto;">
@@ -79,7 +80,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <form id="login-form" action="login.php" method="post" role="form" style="display: block;">
-                                    <?php include('errors.php'); ?>
+                                    <?php include 'errors.php';?>
                                     <div class="form-group">
                                         <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario">
                                     </div>
@@ -149,7 +150,7 @@
     </div>
 
 
-            
+
             <footer class="piedepagina p-y-1" role="contentinfo">
                 <div class="container">
                     <p>2018 © ManageYourTime Todos los derechos reservados</p>

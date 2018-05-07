@@ -1,3 +1,31 @@
+<?php
+$msg = "";
+
+if (isset($_POST['submit'])) {
+	require 'phpmailer/PHPMailerAutoload.php';
+
+	function contactEmail($to, $from, $fromName, $body) {
+		$mail = new PHPMailer();
+		$mail->setFrom($from, $fromName);
+		$mail->addAddress($to);
+		$mail->Subject = 'Contacto ManagePPP';
+		$mail->Body = $body;
+		$mail->isHTML(false);
+	}
+
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$body = $_POST['message'];
+
+	if (contactEmail('manageppp@gmail.com', $email, $name, $body)) {
+		$msg = 'Mensaje enviado';
+	} else {
+		$msg = 'Error al enviar el mensaje';
+	}
+
+}
+
+?>
 
 <html lang="en">
     <head><title>MYT Manage Your Time</title>
@@ -64,11 +92,11 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h2 class="m-b-2">Formulario de contacto</h2>
-                        <form action="#">
+                        <form method="post" action="contacto.php">
                             <div class="form-group row">
                                 <label for="nombre" class="col-md-4 col-form-label">Nombre</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" data-toggle="tooltip" data-placement="top" title="Ingrese su nombre completo">
+                                    <input class="form-control" type="text" id="name" name="name" placeholder="Ingrese su nombre" data-toggle="tooltip" data-placement="top" title="Ingrese su nombre completo">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -80,21 +108,22 @@
                             <div class="form-group row">
                                 <label for="mensaje" class="col-md-4 col-form-label">Mensaje</label>
                                 <div class="col-md-8">
-                                    <textarea class="form-control" rows="5" id="mensaje" name="mensaje" placeholder="Ingrese su mensaje" data-toggle="tooltip" data-placement="top" title="Ingrese un mensaje"></textarea>
+                                    <textarea class="form-control" rows="5" id="message" name="message" placeholder="Ingrese su mensaje" data-toggle="tooltip" data-placement="top" title="Ingrese un mensaje"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
                                     <button type="reset" class="btn btn-secondary">Limpiar</button>
+                                <?php echo $msg ?>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="col-md-4">
                         <h3 class="m-b-2">Detalles de contacto</h3>
-                        <p>Dirección: Av. Carlos V...</p>
-                        <p>Correo electrónico: correofalso@myt.com</p>
+                        <p>Dirección: Av. Carlos V</p>
+                        <p>Correo electrónico: manageppp@gmail.com</p>
                         <p>Teléfono: 699-999-999</p>
                     </div>
                 </div>
