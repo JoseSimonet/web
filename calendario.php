@@ -122,38 +122,22 @@ if (isset($_GET['logout'])) {
             },
                 events:'http://localhost/web/events.php',
             eventClick:function(calEvent,jsEvent,view){
+
                 $('#tituloEvento').html(calEvent.title);
-                $('#descripcionEvento').html(calEvent.descripcion);
-                $('#exampleModal').modal();
+            //Mostrar la información del evento en los inputs
+                $('#txtDescripcion').val(calEvent.descripcion);
+                $('#txtId').val(calEvent.id);
+                $('#txtTitulo').val(calEvent.title);
+                $('#txtColor').val(calEvent.color);
+
+                FechaHora = calEvent.start._i.split(" ");
+                $('#txtFecha').val(FechaHora[0]);
+                $('#txtHora').val(FechaHora[1]);
+                $('#modalEventos').modal();
             }
         });
     });
   </script>
-
-<!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="tituloEvento"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div id="descripcionEvento"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success">Agregar</button>
-            <button type="button" class="btn btn-success">Modificar</button>
-            <button type="button" class="btn btn-danger">Borrar</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 
     <!-- Modal (Agregar, Modificar, Eliminar)-->
   <div class="modal fade" id="modalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,24 +150,74 @@ if (isset($_GET['logout'])) {
             </button>
           </div>
           <div class="modal-body">
-            <div id="descripcionEvento"></div>
-
+            Id: <input type="text" id="txtId" name="txtId"/><br/>
             Fecha: <input type="text" id="txtFecha" name="txtFecha" /><br/>
             Titulo: <input type="text" id="txtTitulo"/><br/>
             Hora: <input type="text" id="txtHora" value="10:30"/><br/>
-            Descripción: <textarea id="txtDescripcion" rows="3"></textarea><br/> id="txtDescripcion"/><br/>
+            Descripción: <textarea id="txtDescripcion" rows="3"></textarea><br/>
             Color: <input type="color" value="#ff0000" id="txtColor"/><br/>
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success">Agregar</button>
-            <button type="button" class="btn btn-success">Modificar</button>
-            <button type="button" class="btn btn-danger">Borrar</button>
+            <button type="button" id="btnAgregar" class="btn btn-success">Agregar</button>
+            <button type="button" id="btnModificar" class="btn btn-success">Modificar</button>
+            <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+        var NuevoEvento;
+
+        $('#btnAgregar').click(function(){
+            recolectarDatosGUI();
+            enviarInformacion('agregar', NuevoEvento);
+        });
+
+        $('#btnModificar').click(function(){
+            recolectarDatosGUI();
+            enviarInformacion('modificar', NuevoEvento);
+        });
+
+        $('#btnEliminar').click(function(){
+            recolectarDatosGUI();
+            enviarInformacion('eliminar', NuevoEvento);
+        });
+
+        function recolectarDatosGUI(){
+            NuevoEvento = {
+                id:$('txtId').val(),
+                title:$('#txtTitulo').val(),
+                start:$('#txtFecha').val() + " " +$('#txtHora').val(),
+                color:$('#txtColor').val(),
+                descripcion:$('#txtDescripcion').val(),
+                textColor:"#FFFFFF",
+                end:$('#txtFecha').val() + " " +$('#txtHora').val()
+            };
+        }
+
+        function enviarInformacion(accion, objEvento){
+            $.ajax({
+                type: 'POST',
+                url: 'events.php?accion='+accion,
+                data: objEvento,
+                success: function(msg){
+                    if(msg){
+                        $('#CalendarioWeb').fullCalendar('refetchEvents');
+                        $('#modalEventos').modal('toggle');
+                    }
+
+                },
+                error:function(){
+                    alert("Ha ocurrido un error ...");
+                }
+            });
+        }
+
+
+    </script>
 
 </body>
 </html>
