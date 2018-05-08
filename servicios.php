@@ -11,8 +11,6 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/animate.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-        <!-- Carga galería imágenes -->
-        <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body class="paginas-internas">
         <section class="bienvenidos">

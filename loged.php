@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-	$_SESSION['msg'] = "You must log in first";
+	$_SESSION['msg'] = "Tienes que logearte primero";
 	header('location: login.php');
 }
 if (isset($_GET['logout'])) {
@@ -12,7 +12,7 @@ if (isset($_GET['logout'])) {
 }
 ?>
 
-<html lang="en">
+<html lang="es">
 <head><title>MYT Manage Your Time</title>
   <meta charset="utf-8" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -24,8 +24,6 @@ if (isset($_GET['logout'])) {
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
   <link href="css/animate.min.css" rel="stylesheet" type="text/css"/>
   <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-  <!-- Carga galería imágenes -->
-  <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="paginas-internas">
   <section class="bienvenidos" style="height: 30vh;">
@@ -48,7 +46,7 @@ if (isset($_GET['logout'])) {
           <nav id="menu-principal" class="collapse">
             <ul>
               <li class="active"><a href="loged.php">Perfil</a></li>
-              <li><a href="jornada.php">Jornada</a></li>
+              <li><a href="calendario.php">Calendario</a></li>
               <li><a href="index.php?logout='1'">Logout</a></li>
             </ul>
           </nav>

@@ -3,14 +3,15 @@ include "database.php";
 include "Email.php";
 session_start();
 
-// initializing variables
+// inicializando variables
 $username = "";
 $email_1 = "";
 $errors = array();
+$success = array();
 
-// REGISTER USER
+// Registro
 if (isset($_POST['reg_user'])) {
-	// receive all input values from the form
+	// Recibe los valores de los inputs del registro.
 	$name = mysqli_real_escape_string($db, $_POST['name']);
 	$surname = mysqli_real_escape_string($db, $_POST['surname']);
 	$username = mysqli_real_escape_string($db, $_POST['username']);
@@ -20,8 +21,8 @@ if (isset($_POST['reg_user'])) {
 	$password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 	$birthday = mysqli_real_escape_string($db, $_POST['birthday']);
 
-	// form validation: ensure that the form is correctly filled ...
-	// by adding (array_push()) corresponding error unto $errors array
+	// Validación: Se comprueba de que esté completamente rellenado ...
+	// al añadir (array_push()) se añade el error al array $errors.
 	if (empty($name)) {array_push($errors, "El nombre es obligatorio");}
 	if (empty($surname)) {array_push($errors, "El apellido es obligatorio");}
 	if (empty($username)) {array_push($errors, "El nombre de usuario es obligatorio");}
@@ -35,7 +36,7 @@ if (isset($_POST['reg_user'])) {
 		array_push($errors, "Las contraseñas no coinciden");
 	}
 
-//Se comprueba la validez del nombre de usuario.
+	//Se comprueba la validez del nombre de usuario.
 	if (strlen($username) < 6 || strlen($username) > 10) {
 		array_push($errors, "El nombre de usuario debe tener entre 6 y 10 caracteres");
 	}if (!preg_match('/(?=\d)/', $username)) {
@@ -44,7 +45,7 @@ if (isset($_POST['reg_user'])) {
 		array_push($errors, "El nombre de usuario debe contener al menos una mayúscula");
 	}
 
-//Se comprueba la seguridad de la contraseña.
+	//Se comprueba la seguridad de la contraseña.
 	if (strlen($password_1) < 6 || strlen($password_1) > 10) {
 		array_push($errors, "La contraseña debe tener entre 6 y 10 caracteres");
 	}if (!preg_match('/(?=[$@#%&]|-|_)/', $password_1)) {
@@ -57,19 +58,18 @@ if (isset($_POST['reg_user'])) {
 		array_push($errors, "La contraseña debe contener al menos una mayúscula");
 	}
 
-//Se comprueba la validez del email.
+	//Se comprueba la validez del email.
 	if (!filter_var($email_1, FILTER_VALIDATE_EMAIL)) {
 		array_push($errors, "Email no válido");
 	}
 
-	// first check the database to make sure
-	// a user does not already exist with the same username and/or email
+	// Primero se comprueba en la BD que no existe un usuario con el mismo username o email
 	$user_check_query = "SELECT * FROM Users WHERE username='$username' OR email='$email_1' LIMIT 1";
 	$result = mysqli_query($db, $user_check_query);
 	$user = mysqli_fetch_assoc($result);
 
 	if ($user) {
-		// if user exists
+		// si existe el usuario...
 		if ($user['username'] === $username) {
 			array_push($errors, "El nombre de usuario ya existe");
 		}
@@ -81,28 +81,33 @@ if (isset($_POST['reg_user'])) {
 		$code = md5($email_1 . time());
 	}
 
-	// Finally, register user if there are no errors in the form
+	// Finalmente, se da lugar al registro si no han ocurrido errores.
 	if (count($errors) == 0) {
-
-		$password = md5($password_1); //encrypt the password before saving in the database
+		//Se encripta la contraseña antes de almacenarse en la BD.
+		$password = md5($password_1);
 
 		$query = "INSERT INTO Users (name, surname, username, email, password, birthday, code) VALUES ('$name', '$surname', '$username', '$email_1', '$password', '$birthday', '$code')";
 		mysqli_query($db, $query);
+
+		//Guardamos en la sesión los campos necesarios más adelante.
 		$_SESSION['username'] = $username;
 		$_SESSION['name'] = $name;
 		$_SESSION['surname'] = $surname;
 		$_SESSION['email'] = $email_1;
 		$_SESSION['birthday'] = $birthday;
 
+		//Se procede a a enviar el email de verificación
 		$to = $email_1;
 		$subject = "Email verification";
-		$body = 'Buenas, <br/> <br/> Necesitamos comprobar que eres humano. Por favor, verifique su email para que pueda demostrarlo. <br/> <br/> <a href="' . $base_url . 'activation.php?code=' . $code . '">' . $base_url . 'activation.php?code=' . $code . '</a>';
+		$body = 'Saludos ' . $name . ' ' . $surname . ', <br/> <br/> Necesitamos comprobar que eres humano. Por favor, verifique su email para que pueda demostrarlo. <br/> <br/> <a href="' . $base_url . 'activation.php?code=' . $code . '">' . $base_url . 'activation.php?code=' . $code . '</a> <p>Username: ' . $username . '<br/>Password: ' . $password_1 . '</p>';
 
 		Send_Mail($to, $subject, $body);
+
+		array_push($success, "Compruebe su correo entrante para completar el registro.");
 	}
 
 }
-
+//Login
 if (isset($_POST['login_user'])) {
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$password = mysqli_real_escape_string($db, $_POST['password']);
@@ -118,6 +123,10 @@ if (isset($_POST['login_user'])) {
 		array_push($errors, "Password is required");
 	}
 
+	if ($user['status'] == 0) {
+		array_push($errors, "Pendiente de verificar la cuenta.");
+	}
+
 	if (count($errors) == 0) {
 		$password = md5($password);
 		$query = "SELECT * FROM Users WHERE username='$username' AND password='$password'";
@@ -128,10 +137,10 @@ if (isset($_POST['login_user'])) {
 			$_SESSION['surname'] = $user['surname'];
 			$_SESSION['email'] = $user['email'];
 			$_SESSION['birthday'] = $user['birthday'];
-			$_SESSION['success'] = "You are now logged in";
+			$_SESSION['success'] = "Ahora está logeado.";
 			header('location: loged.php');
 		} else {
-			array_push($errors, "Wrong username/password combination");
+			array_push($errors, "Email o nombre de usuario incorrectos.");
 		}
 	}
 }

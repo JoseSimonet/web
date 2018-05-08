@@ -1,4 +1,7 @@
-<?php include "server.php"?>
+<?php
+session_start();
+include 'server.php'?>
+?>
 
 <html lang="en">
     <head><title>MYT Manage Your Time</title>
@@ -12,8 +15,6 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/animate.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-        <!-- Carga galería imágenes -->
-        <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body class="paginas-internas">
         <section class="bienvenidos" style="height: 30vh;">
@@ -81,15 +82,12 @@
                             <div class="col-lg-12">
                                 <form id="login-form" action="login.php" method="post" role="form" style="display: block;">
                                     <?php include 'errors.php';?>
+                                    <?php include 'success.php';?>
                                     <div class="form-group">
                                         <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                        <label for="remember"> Recordarme</label>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
@@ -108,6 +106,8 @@
                                         </div>
                                     </div>
                                 </form>
+
+
                                 <form id="register-form" action="" method="post" role="form" style="display: none;">
                                     <div class="form-group">
                                         <input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Nombre">
@@ -125,7 +125,7 @@
                                         <input type="email" name="email_2" id="confirm-email" tabindex="1" class="form-control" placeholder="Confirmar correo electrónico">
                                     </div>
                                     <div class="form-group">
-                                            <input type="date" name="birthday" tabindex="2" class="form-control">
+                                            <input type="date" name="birthday" tabindex="2" class="form-control" id="birthday">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password_1" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
@@ -169,5 +169,6 @@
             <script src="js/smooth-scroll.min.js"></script>
             <script src="js/carga.js"></script>
             <script src="js/function.js"></script>
+            <script src ="js/date.js"></script>
         </body>
     </html>

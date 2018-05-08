@@ -18,6 +18,5 @@ function Send_Mail($to, $subject, $body) {
 	$mail->MsgHTML($body);
 	$mail->addAddress($to);
 	$mail->send();
-	$msg = "Registro completo, por favor, active su email.";
 }
 ?>

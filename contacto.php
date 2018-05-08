@@ -5,29 +5,40 @@ if (isset($_POST['submit'])) {
 	require 'phpmailer/PHPMailerAutoload.php';
 
 	function contactEmail($to, $from, $fromName, $body) {
+
 		$mail = new PHPMailer();
+		$mail->isSMTP(true); // use SMTP
+		$mail->Host = "smtp.gmail.com"; // SMTP host
+		$mail->SMTPSecure = "ssl";
+		$mail->Port = 465; // set the SMTP port
+		$mail->SMTPAuth = true; // enable SMTP authentication
+		$mail->isHTML(true);
+		$mail->Username = "manageppp@gmail.com"; // SMTP  username
+		$mail->Password = "Manage123"; // SMTP password
+
 		$mail->setFrom($from, $fromName);
+		$mail->Subject = $from;
+		$mail->MsgHTML($body);
 		$mail->addAddress($to);
-		$mail->Subject = 'Contacto ManagePPP';
-		$mail->Body = $body;
-		$mail->isHTML(false);
+
+		return $mail->send();
 	}
 
 	$name = $_POST['name'];
 	$email = $_POST['email'];
-	$body = $_POST['message'];
+	$text = $_POST['message'];
 
-	if (contactEmail('manageppp@gmail.com', $email, $name, $body)) {
+	if (contactEmail('manageppp@gmail.com', $email, $name, $text)) {
 		$msg = 'Mensaje enviado';
 	} else {
-		$msg = 'Error al enviar el mensaje';
+		$msg = 'Por favor, inténtelo de nuevo.';
 	}
 
 }
 
 ?>
 
-<html lang="en">
+<html lang="es">
     <head><title>MYT Manage Your Time</title>
         <meta charset="utf-8" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -39,8 +50,6 @@ if (isset($_POST['submit'])) {
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/animate.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-        <!-- Carga galería imágenes -->
-        <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body class="paginas-internas">
         <section class="bienvenidos">

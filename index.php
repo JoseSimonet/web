@@ -1,5 +1,5 @@
-<?php 
-  session_start(); 
+<?php
+session_start();
 ?>
 
 <html lang="es">
@@ -14,8 +14,6 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/animate.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-        <!-- Carga galería imágenes -->
-        <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <section class="bienvenidos">
@@ -169,7 +167,6 @@
         <!-- Carga de archivos JS -->
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/owl.carousel.min.js" type="text/javascript"></script>
         <script src="js/wow.min.js"></script>
         <script src="js/smooth-scroll.min.js"></script>
         <script src="js/carga.js"></script>
