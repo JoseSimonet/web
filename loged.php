@@ -5,11 +5,6 @@ if (!isset($_SESSION['username'])) {
 	$_SESSION['msg'] = "Tienes que logearte primero";
 	header('location: login.php');
 }
-if (isset($_GET['logout'])) {
-	session_destroy();
-	unset($_SESSION['username']);
-	header("location: login.php");
-}
 ?>
 
 <html lang="es">
@@ -32,22 +27,13 @@ if (isset($_GET['logout'])) {
         <a href="index.php" class="logo">
           <img src="images/logoMYT.svg" alt="Logo del sitio">
         </a>
-        <button type="button" class="boton-buscar" data-toggle="collapse" data-target="#bloque-buscar" aria-expanded="false">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
         <button type="button" class="boton-menu hidden-md-up" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false">
           <i class="fa fa-bars" aria-hidden="true"></i></button>
-          <form action="#" id="bloque-buscar" class="collapse">
-            <div class="contenedor-bloque-buscar">
-              <input type="text" placeholder="Buscar...">
-              <input type="submit" value="Buscar">
-            </div>
-          </form>
           <nav id="menu-principal" class="collapse">
             <ul>
               <li class="active"><a href="loged.php">Perfil</a></li>
               <li><a href="calendario.php">Calendario</a></li>
-              <li><a href="index.php?logout='1'">Logout</a></li>
+              <li><a href="logout.php">Logout</a></li>
             </ul>
           </nav>
         </div>

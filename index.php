@@ -20,19 +20,10 @@ session_start();
             <header class="encabezado navbar-fixed-top" role="banner" id="encabezado">
                 <div class="container">
                     <a href="index.php" class="logo">
-                        <img src="images/logoMYT.svg" alt="Logo del sitio">
+                        <img src="images/logoMYT.svg" style="width: 10rem;" alt="Logo del sitio">
                     </a>
-                    <button type="button" class="boton-buscar" data-toggle="collapse" data-target="#bloque-buscar" aria-expanded="false">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
                     <button type="button" class="boton-menu hidden-md-up" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false">
                     <i class="fa fa-bars" aria-hidden="true"></i></button>
-                    <form action="#" id="bloque-buscar" class="collapse">
-                        <div class="contenedor-bloque-buscar">
-                            <input type="text" placeholder="Buscar...">
-                            <input type="submit" value="Buscar">
-                        </div>
-                    </form>
                     <nav id="menu-principal" class="collapse">
                         <ul>
                             <li class="active"><a href="index.php">Inicio</a></li>

@@ -45,57 +45,20 @@ body {
   width: 250px;
   height: auto; }
 
-/*Estilos para el boton: buscar y menu*/
-.boton-buscar,
+/*Estilos para el boton: menu*/
+
 .boton-menu {
   border: 0;
   font-size: 2rem;
   margin: 0;
   padding: 0 .5rem;
   background: transparent;
-  color: #fff; }
+  color: #fff; 
+  margin-left: auto;
+  margin-right: .8rem;}
 
-.boton-buscar:focus,
 .boton-menu:focus {
   outline: 0; }
-
-.boton-buscar {
-  margin-left: auto;
-  margin-right: .8rem; }
-
-/*Estilos bloque buscar*/
-#bloque-buscar {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%; }
-
-.contenedor-bloque-buscar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 3rem;
-  margin: 1rem 0; }
-
-.contenedor-bloque-buscar input[type="text"] {
-  border: 0;
-  border-radius: 5px 0 0 5px;
-  padding: 1rem;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto; }
-
-.contenedor-bloque-buscar input[type="submit"] {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-  border: 0;
-  border-radius: 0 5px 5px 0;
-  background: #01A0AD;
-  color: #fff;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
-  padding: 0 1rem; }
 
 #menu-principal {
   -webkit-box-flex: 1;
@@ -468,24 +431,6 @@ body {
   #menu-principal ul li a:hover {
     color: #01A0AD;
     border-bottom: 4px solid; }
-
-  .boton-buscar {
-    margin-left: 1rem;
-    margin-right: 0;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2; }
-
-  #bloque-buscar {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-    position: absolute;
-    width: 20rem;
-    right: 3rem;
-    top: 2.8rem;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease; }
 
   .servicios article {
     margin: 1rem 0;

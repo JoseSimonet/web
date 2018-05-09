@@ -5,11 +5,6 @@ if (!isset($_SESSION['username'])) {
 	$_SESSION['msg'] = "Tienes que logearte primero";
 	header('location: login.php');
 }
-if (isset($_GET['logout'])) {
-	session_destroy();
-	unset($_SESSION['username']);
-	header("location: login.php");
-}
 ?>
 
 <html lang="es">
@@ -33,22 +28,13 @@ if (isset($_GET['logout'])) {
         <a href="index.php" class="logo">
           <img src="images/logoMYT.svg" alt="Logo del sitio">
         </a>
-        <button type="button" class="boton-buscar" data-toggle="collapse" data-target="#bloque-buscar" aria-expanded="false">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
         <button type="button" class="boton-menu hidden-md-up" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false">
           <i class="fa fa-bars" aria-hidden="true"></i></button>
-          <form action="#" id="bloque-buscar" class="collapse">
-            <div class="contenedor-bloque-buscar">
-              <input type="text" placeholder="Buscar...">
-              <input type="submit" value="Buscar">
-            </div>
-          </form>
           <nav id="menu-principal" class="collapse">
             <ul>
               <li><a href="loged.php">Perfil</a></li>
               <li class="active"><a href="calendario.php">Calendario</a></li>
-              <li><a href="index.php?logout='1'">Logout</a></li>
+              <li><a href="logout.php">Logout</a></li>
             </ul>
           </nav>
         </div>
@@ -106,18 +92,14 @@ if (isset($_GET['logout'])) {
             header:{
                 left:'today,prev,next,Miboton',
                 center:'title',
-                right: 'month,basicWeek,basicDay,agendaWeek,agendaDay'
-            },
-            customButtons:{
-                Miboton:{
-                    text:"Botón 1",
-                    click:function(){
-
-                    }
-                }
+                right: 'month,agendaWeek,agendaDay'
             },
             dayClick:function(date,jsEvent,view){
+                $("#txtId").val("");
                 $("#txtFecha").val(date.format());
+                $("#txtTitulo").val("");
+                $("#txtHora").val("");
+                $("#txtDescripcion").val("");
                 $("#modalEventos").modal();
             },
                 events:'http://localhost/web/events.php',
@@ -134,6 +116,20 @@ if (isset($_GET['logout'])) {
                 $('#txtFecha').val(FechaHora[0]);
                 $('#txtHora').val(FechaHora[1]);
                 $('#modalEventos').modal();
+            },
+            editable:true,
+            eventDrop:function(calEvent){
+                $('#txtId').val(calEvent.id);
+                $('#txtTitulo').val(calEvent.title);
+                $('#txtColor').val(calEvent.color);
+                $('#txtDescripcion').val(calEvent.descripcion);
+
+                FechaHora = calEvent.start.format().split("T");
+                $('#txtFecha').val(FechaHora[0]);
+                $('#txtHora').val(FechaHora[1]);
+
+                recolectarDatosGUI();
+                enviarInformacion('modificar', NuevoEvento, true);
             }
         });
     });
@@ -150,12 +146,32 @@ if (isset($_GET['logout'])) {
             </button>
           </div>
           <div class="modal-body">
-            Id: <input type="text" id="txtId" name="txtId"/><br/>
-            Fecha: <input type="text" id="txtFecha" name="txtFecha" /><br/>
-            Titulo: <input type="text" id="txtTitulo"/><br/>
-            Hora: <input type="text" id="txtHora" value="10:30"/><br/>
-            Descripción: <textarea id="txtDescripcion" rows="3"></textarea><br/>
-            Color: <input type="color" value="#ff0000" id="txtColor"/><br/>
+
+            <input type="hidden" id="txtId" name="txtId"/>
+            <input type="hidden" id="txtFecha" name="txtFecha" />
+
+        <div class="container">
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label>Título:</label>
+                    <input type="text" id="txtTitulo" class="form-control" placeholder="Título del evento">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label>Hora:</label>
+                    <input type="text" id="txtHora" value="10:30" class="form-control"></input>
+                </div>
+            </div>
+        </div>
+
+            <div class="form-group col-md-12">
+                    <label>Descripción:</label>
+                    <textarea id="txtDescripcion" rows="3" class="form-control"></textarea>
+            </div>
+            <div class="form-group col-md-12">
+                    <label>Color:</label>
+                    <input type="color" value="#ff0000" id="txtColor" style="width: 100%;"/>
+            </div>
 
           </div>
           <div class="modal-footer">
@@ -188,7 +204,7 @@ if (isset($_GET['logout'])) {
 
         function recolectarDatosGUI(){
             NuevoEvento = {
-                id:$('txtId').val(),
+                id:$('#txtId').val(),
                 title:$('#txtTitulo').val(),
                 start:$('#txtFecha').val() + " " +$('#txtHora').val(),
                 color:$('#txtColor').val(),
@@ -198,7 +214,7 @@ if (isset($_GET['logout'])) {
             };
         }
 
-        function enviarInformacion(accion, objEvento){
+        function enviarInformacion(accion, objEvento, modal){
             $.ajax({
                 type: 'POST',
                 url: 'events.php?accion='+accion,
@@ -206,7 +222,10 @@ if (isset($_GET['logout'])) {
                 success: function(msg){
                     if(msg){
                         $('#CalendarioWeb').fullCalendar('refetchEvents');
-                        $('#modalEventos').modal('toggle');
+                        if(!modal){
+                            $('#modalEventos').modal('toggle');
+                        }
+
                     }
 
                 },

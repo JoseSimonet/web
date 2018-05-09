@@ -3,7 +3,7 @@ session_start();
 include 'server.php'?>
 ?>
 
-<html lang="en">
+<html lang="es">
     <head><title>MYT Manage Your Time</title>
         <meta charset="utf-8" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -23,17 +23,8 @@ include 'server.php'?>
                     <a href="index.php" class="logo">
                         <img src="images/logoMYT.svg" alt="Logo del sitio">
                     </a>
-                    <button type="button" class="boton-buscar" data-toggle="collapse" data-target="#bloque-buscar" aria-expanded="false">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
                     <button type="button" class="boton-menu hidden-md-up" data-toggle="collapse" data-target="#menu-principal" aria-expanded="false">
                     <i class="fa fa-bars" aria-hidden="true"></i></button>
-                    <form action="#" id="bloque-buscar" class="collapse">
-                        <div class="contenedor-bloque-buscar">
-                            <input type="text" placeholder="Buscar...">
-                            <input type="submit" value="Buscar">
-                        </div>
-                    </form>
                     <nav id="menu-principal" class="collapse">
                         <ul>
                             <li><a href="index.php">Inicio</a></li>

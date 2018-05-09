@@ -1,5 +1,5 @@
 
-<html lang="en">
+<html lang="es">
     <head>
         <title>
         MYT Manage Your Time
@@ -23,22 +23,10 @@
                     <a class="logo" href="index.php">
                         <img src="images/logoMYT.svg" alt="Logo del sitio">
                     </a>
-                    <button aria-expanded="false" class="boton-buscar" data-target="#bloque-buscar" data-toggle="collapse" type="button">
-                    <i aria-hidden="true" class="fa fa-search">
-                    </i>
-                    </button>
                     <button aria-expanded="false" class="boton-menu hidden-md-up" data-target="#menu-principal" data-toggle="collapse" type="button">
                     <i aria-hidden="true" class="fa fa-bars">
                     </i>
                     </button>
-                    <form action="#" class="collapse" id="bloque-buscar">
-                        <div class="contenedor-bloque-buscar">
-                            <input placeholder="Buscar..." type="text">
-                            <input type="submit" value="Buscar">
-                            </input>
-                            </input>
-                        </div>
-                    </form>
                     <nav class="collapse" id="menu-principal">
                         <ul>
                             <li>

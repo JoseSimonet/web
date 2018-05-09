@@ -24,16 +24,13 @@ case 'agregar':
 
 case 'eliminar':
 	//Instrucción eliminar
-	$res = false;
-	$sentencia = $pdo->prepare("UPDATE Events SET
-		title=:title,
-		descripcion=:descripcion,
-		color=:color,
-		textColor=:textColor,
-		start=:start,
-		end=:end
-		WHERE Id=:Id;
-		");
+
+	if (isset($_POST['id'])) {
+
+		$sentencia = $pdo->prepare("DELETE FROM Events WHERE id=:id");
+		$res = $sentencia->execute(array("id" => $_POST['id']));
+	}
+	echo json_encode($res);
 	break;
 
 case 'modificar':
@@ -45,8 +42,20 @@ case 'modificar':
 		textColor=:textColor,
 		start=:start,
 		end=:end
-		WHERE Id=:Id;
+		WHERE id=:id;
 		");
+
+	$res = $sentencia->execute(array(
+		"id" => $_POST['id'],
+		"title" => $_POST['title'],
+		"descripcion" => $_POST['descripcion'],
+		"color" => $_POST['color'],
+		"textColor" => $_POST['textColor'],
+		"start" => $_POST['start'],
+		"end" => $_POST['end'],
+	));
+
+	echo json_encode($res);
 	break;
 
 default:
