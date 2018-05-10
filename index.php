@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <html lang="es">
     <head><title>MYT Manage Your Time</title>
         <meta charset="utf-8" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">

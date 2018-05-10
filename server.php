@@ -123,7 +123,7 @@ if (isset($_POST['login_user'])) {
 		array_push($errors, "Password is required");
 	}
 
-	if ($user['status'] == 0) {
+	if (($user['username'] == $username) && ($user['password'] == $password) && ($user['status'] == 0)) {
 		array_push($errors, "Pendiente de verificar la cuenta.");
 	}
 
@@ -132,6 +132,7 @@ if (isset($_POST['login_user'])) {
 		$query = "SELECT * FROM Users WHERE username='$username' AND password='$password'";
 		$results = mysqli_query($db, $query);
 		if (mysqli_num_rows($results) == 1) {
+			$_SESSION['id'] = $user['id'];
 			$_SESSION['username'] = $username;
 			$_SESSION['name'] = $user['name'];
 			$_SESSION['surname'] = $user['surname'];
@@ -140,7 +141,7 @@ if (isset($_POST['login_user'])) {
 			$_SESSION['success'] = "Ahora está logeado.";
 			header('location: loged.php');
 		} else {
-			array_push($errors, "Email o nombre de usuario incorrectos.");
+			array_push($errors, "Usuario y/o contraseña incorrectos.");
 		}
 	}
 }

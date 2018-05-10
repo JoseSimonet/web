@@ -42,9 +42,8 @@ body {
       flex-wrap: wrap; }
 
 .encabezado .logo img {
-  width: 250px;
+  width: 10rem;
   height: auto; }
-
 /*Estilos para el boton: menu*/
 
 .boton-menu {
@@ -340,7 +339,7 @@ body {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d; }
 
-/*Estilos Página Login*/
+/*Estilos página Login*/
 .section {
   padding: 40px 0; }
 
@@ -384,6 +383,14 @@ body {
   background-color: #005259;
   border-color: #005259; }
 
+  .error {
+    color:red;
+  }
+
+  .success {
+    color:green;
+  }
+
   /*Estilos página de perfil*/
   input.hidden {
     position: absolute;
@@ -398,6 +405,16 @@ body {
   border:2px solid #03b1ce ;}
   .title{ font-size:16px; font-weight:500;}
    .bot-border{ border-bottom:1px #f8f8f8 solid;  margin:5px 0  5px 0}  
+
+  /*Estilos calendario*/
+  .fc-sun { 
+    color: brown; 
+  }
+  .holiday {
+    color: brown;
+    background: rgba(215,215,215,.3);
+    font-weight: bold;
+}
 
 /*Disposición según resoluciones*/
 @media (min-width: 768px) {

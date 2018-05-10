@@ -85,36 +85,49 @@ if (!isset($_SESSION['username'])) {
   <script src="js/moment.min.js"></script>
   <script src="js/fullcalendar.min.js"></script>
   <script src="js/es.js"></script>
-
   <script>
     jQuery(document).ready(function() {
         $('#CalendarioWeb').fullCalendar({
+            businessHours: true,
+            defaultView: 'month',
             header:{
-                left:'today,prev,next,Miboton',
+                left:'prev,today,next',
                 center:'title',
-                right: 'month,agendaWeek,agendaDay'
+                right: 'month,agendaWeek,agendaDay,listWeek'
+            },
+            businessHours: {
+                dow: [ 1, 2, 3, 4, 5 ], // Lunes a Viernes
+                start: '08:00',
+                end: '16:00',
             },
             dayClick:function(date,jsEvent,view){
                 $("#txtId").val("");
-                $("#txtFecha").val(date.format());
+                $("#txtFechaIni").val(date.format());
+                $("#txtFechaFin").val(date.format());
                 $("#txtTitulo").val("");
-                $("#txtHora").val("");
+                $("#txtHoraIni").val("");
+                $("#txtHoraFin").val("");
                 $("#txtDescripcion").val("");
                 $("#modalEventos").modal();
+                $("#txtUserId").val(<?php echo $_SESSION['id'] ?>);
             },
                 events:'http://localhost/web/events.php',
             eventClick:function(calEvent,jsEvent,view){
-
                 $('#tituloEvento').html(calEvent.title);
             //Mostrar la información del evento en los inputs
+
                 $('#txtDescripcion').val(calEvent.descripcion);
                 $('#txtId').val(calEvent.id);
                 $('#txtTitulo').val(calEvent.title);
                 $('#txtColor').val(calEvent.color);
 
-                FechaHora = calEvent.start._i.split(" ");
-                $('#txtFecha').val(FechaHora[0]);
-                $('#txtHora').val(FechaHora[1]);
+                FechaHoraIni = calEvent.start._i.split(" ");
+                $('#txtFechaIni').val(FechaHoraIni[0]);
+                $('#txtHoraIni').val(FechaHoraIni[1]);
+
+                FechaHoraFin = calEvent.end._i.split(" ");
+                $('#txtFechaFin').val(FechaHoraFin[0]);
+                $('#txtHoraFin').val(FechaHoraFin[1]);
                 $('#modalEventos').modal();
             },
             editable:true,
@@ -124,12 +137,56 @@ if (!isset($_SESSION['username'])) {
                 $('#txtColor').val(calEvent.color);
                 $('#txtDescripcion').val(calEvent.descripcion);
 
-                FechaHora = calEvent.start.format().split("T");
-                $('#txtFecha').val(FechaHora[0]);
-                $('#txtHora').val(FechaHora[1]);
+                FechaHoraIni = calEvent.start.format().split("T");
+                $('#txtFechaIni').val(FechaHoraIni[0]);
+                $('#txtHoraIni').val(FechaHoraIni[1]);
+
+                FechaHoraFin = calEvent.end.format().split("T");
+                $('#txtFechaFin').val(FechaHoraFin[0]);
+                $('#txtHoraFin').val(FechaHoraFin[1]);
+
+                $('#txtUserId').val(<?php echo $_SESSION['id'] ?>);
 
                 recolectarDatosGUI();
                 enviarInformacion('modificar', NuevoEvento, true);
+            },
+            eventAfterAllRender: function (view) {
+                //Use view.intervalStart and view.intervalEnd to find date range of holidays
+                //Make ajax call to find holidays in range.
+                var diaAñoNuevo = moment('2018-01-01','YYYY-MM-DD');
+                var diaReyes = moment('2018-01-06','YYYY-MM-DD');
+                var diaViernesSanto = moment('2018-03-30','YYYY-MM-DD');
+                var diaTrabajador = moment('2018-05-01','YYYY-MM-DD');
+                var diaCanarias = moment('2018-05-31','YYYY-MM-DD');
+                var diaAsuncionVirgen = moment('2018-08-15','YYYY-MM-DD');
+                var diaHispanidad = moment('2018-10-12','YYYY-MM-DD');
+                var diaTodosSantos = moment('2018-11-01','YYYY-MM-DD');
+                var diaConstitucion = moment('2018-12-06','YYYY-MM-DD');
+                var diaInmaculada = moment('2018-012-08','YYYY-MM-DD');
+                var diaNavidad = moment('2018-12-25','YYYY-MM-DD');
+                var holidays = [diaAñoNuevo,diaReyes,diaViernesSanto,diaTrabajador,diaCanarias,diaAsuncionVirgen,diaHispanidad,diaTodosSantos,diaConstitucion,diaInmaculada,diaNavidad];
+                var holidayMoment;
+                for(var i = 0; i < holidays.length; i++) {
+                    holidayMoment = holidays[i];
+                    if (view.name == 'month') {
+                        $("td[data-date=" + holidayMoment.format('YYYY-MM-DD') + "]").addClass('holiday');
+                    } else if (view.name =='agendaWeek') {
+                        var classNames = $("th:contains(' " + holidayMoment.format('M/D') + "')").attr("class");
+                        if (classNames != null) {
+                            var classNamesArray = classNames.split(" ");
+                            for(var i = 0; i < classNamesArray.length; i++) {
+                                if(classNamesArray[i].indexOf('fc-col') > -1) {
+                                    $("td." + classNamesArray[i]).addClass('holiday');
+                                    break;
+                                }
+                            }
+                        }
+                    } else if (view.name == 'agendaDay') {
+                        if(holidayMoment.format('YYYY-MM-DD') == $('#CalendarioWeb').fullCalendar('getDate').format('YYYY-MM-DD')) {
+                            $("td.fc-col0").addClass('holiday');
+                        };
+                    }
+                }
             }
         });
     });
@@ -148,7 +205,8 @@ if (!isset($_SESSION['username'])) {
           <div class="modal-body">
 
             <input type="hidden" id="txtId" name="txtId"/>
-            <input type="hidden" id="txtFecha" name="txtFecha" />
+            <input type="hidden" id="txtFechaIni" name="txtFechaIni"/>
+            <input type="hidden" id="txtUserId" name="txtUserId"/>
 
         <div class="container">
             <div class="row">
@@ -156,17 +214,25 @@ if (!isset($_SESSION['username'])) {
                     <label>Título:</label>
                     <input type="text" id="txtTitulo" class="form-control" placeholder="Título del evento">
                 </div>
-
                 <div class="form-group col-md-4">
-                    <label>Hora:</label>
-                    <input type="text" id="txtHora" value="10:30" class="form-control"></input>
+                    <label>Hora Inicio:</label>
+                    <input type="text" id="txtHoraIni" value="10:30" class="form-control"></input>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label>Fecha Fin:</label>
+                    <input type="date" id="txtFechaFin" class="form-control" placeholder="Fecha finalización"></input>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Hora Final:</label>
+                    <input type="text" id="txtHoraFin" value="10:30" class="form-control"></input>
                 </div>
             </div>
         </div>
 
             <div class="form-group col-md-12">
                     <label>Descripción:</label>
-                    <textarea id="txtDescripcion" rows="3" class="form-control"></textarea>
+                    <textarea id="txtDescripcion" rows="3" class="form-control" placeholder="Breve descripción del evento"></textarea>
             </div>
             <div class="form-group col-md-12">
                     <label>Color:</label>
@@ -206,18 +272,20 @@ if (!isset($_SESSION['username'])) {
             NuevoEvento = {
                 id:$('#txtId').val(),
                 title:$('#txtTitulo').val(),
-                start:$('#txtFecha').val() + " " +$('#txtHora').val(),
+                start:$('#txtFechaIni').val() + " " +$('#txtHoraIni').val(),
                 color:$('#txtColor').val(),
                 descripcion:$('#txtDescripcion').val(),
                 textColor:"#FFFFFF",
-                end:$('#txtFecha').val() + " " +$('#txtHora').val()
+                end:$('#txtFechaFin').val() + " " +$('#txtHoraFin').val(),
+                userId:$('#txtUserId').val()
             };
         }
 
         function enviarInformacion(accion, objEvento, modal){
+          var string = 'events.php?accion='+accion;
             $.ajax({
                 type: 'POST',
-                url: 'events.php?accion='+accion,
+                url: string,
                 data: objEvento,
                 success: function(msg){
                     if(msg){

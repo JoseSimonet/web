@@ -17,7 +17,7 @@ include 'server.php'?>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body class="paginas-internas">
-        <section class="bienvenidos" style="height: 30vh;">
+        <section class="bienvenidos">
             <header class="encabezado navbar-fixed-top" role="banner" id="encabezado">
                 <div class="container">
                     <a href="index.php" class="logo">
@@ -60,10 +60,10 @@ include 'server.php'?>
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">
-                                <a href="#" class="active" id="login-form-link">Iniciar sesión</a>
+                                <a href="#" class="active" id="login-form-link">Acceso</a>
                             </div>
                             <div class="col-xs-6">
-                                <a href="#" id="register-form-link">Registrarse</a>
+                                <a href="#" id="register-form-link">Registro</a>
                             </div>
                         </div>
                         <hr>
@@ -84,15 +84,6 @@ include 'server.php'?>
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3" style="margin: auto;">
                                                 <input type="submit" name="login_user" id="login_user" tabindex="4" class="form-control btn btn-login" value="Iniciar sesión">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-center">
-                                                    <a href="#" tabindex="5" class="forgot-password">¿Has olvidado tu contraseña?</a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -160,6 +151,6 @@ include 'server.php'?>
             <script src="js/smooth-scroll.min.js"></script>
             <script src="js/carga.js"></script>
             <script src="js/function.js"></script>
-            <script src ="js/date.js"></script>
+            <script src="js/date.js"></script>
         </body>
     </html>

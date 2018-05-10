@@ -21,7 +21,7 @@ if (!isset($_SESSION['username'])) {
   <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="paginas-internas">
-  <section class="bienvenidos" style="height: 30vh;">
+  <section class="bienvenidos">
     <header class="encabezado navbar-fixed-top" role="banner" id="encabezado">
       <div class="container">
         <a href="index.php" class="logo">
@@ -53,7 +53,7 @@ if (!isset($_SESSION['username'])) {
     </section>
 
 
-    <div class="container" style="text-align: center; height: 70vh;">
+    <div class="container" style="text-align: center;">
       <div class="row">
        <div class="col-md-7" style ="margin: 5rem auto; border: 0.3rem solid #01A0AD; padding: 2rem; border-radius: 30px;">
 
