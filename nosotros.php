@@ -75,10 +75,7 @@
                         La gestión nunca ha sido tan fácil
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.
+                            Gestionar tu tiempo nunca ha sido tan fácil. Únicamente tienes que darte de alta con el sistema de ManageYourTime y podrás empezar a administrar el valioso tiempo de tu empresa o particular. ¿No dispones de ordenador? No te preocupes, nuestra página se adapta íntegramente a tu dispositivo móvil además de dispones de una aplicación dedicada.
                         </p>
                         <div aria-multiselectable="true" id="accordion" role="tablist">
                             <div class="panel panel-default">
@@ -89,7 +86,7 @@
                                 </h4>
                                 <div class="panel-collapse collapse in" id="tab-mision">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.
+                                        Proveer de forma simple, intuitiva y amigable un sistema que permita ahorrar tiempo y esfuerzo a la hora de gestionar los eventos cotidianos.
                                     </p>
                                 </div>
                             </div>
@@ -101,7 +98,7 @@
                                 </h4>
                                 <div class="panel-collapse collapse" id="tab-vision">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.
+                                        Expandir el servicio propuesto al mayor número de empresas interesadas para disfrutar de una relación y servicio de mutuo beneficio.
                                     </p>
                                 </div>
                             </div>
@@ -112,10 +109,9 @@
                                 </a>
                                 </h4>
                                 <div class="panel-collapse collapse" id="tab-valores">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.
-                                    </p>
+                                    <p>Innovación</p><p>Integridad</p><p>Colaboración</p><p>Mejora continua</p>
                                 </div>
+
                             </div>
                         </div>
                     </article>

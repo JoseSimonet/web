@@ -45,9 +45,6 @@
                         <article class="item-servicios">
                             <i class="fa fa-cogs" aria-hidden="true"></i>
                             <h4>Desarrollo en su integridad</h4>
-                            <p>
-                                Desarrollamos la aplicación móvil en tu totalidad garantizando la completa personalizanción de la misma.
-                            </p>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#servicio1">Más información</a>
                         </article>
                     </div>
@@ -55,9 +52,6 @@
                         <article class="item-servicios">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                             <h4>Seguridad e integridad</h4>
-                            <p>
-                                Ofrecemos un servicio seguro en cualquier interfaz, tanto en el apartado web como en la aplicación móvil.
-                            </p>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#servicio2">Más información</a>
                         </article>
                     </div>
@@ -65,9 +59,6 @@
                         <article class="item-servicios">
                             <i class="fas fa-inbox" aria-hidden="true"></i>
                             <h4>Respaldo de información</h4>
-                            <p>
-                                Le garantizamos la total seguridad y confidencialidad de la información a tratar el proceso de gestión y acceso de los horarios.
-                            </p>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#servicio3">Más información</a>
                         </article>
                     </div>
@@ -91,7 +82,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-8">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.
+                                Desarrollamos la aplicación móvil en tu totalidad garantizando la completa personalizanción de la misma.
                             </div>
                             <div class="col-md-4">
                                 <img src="images/servicio-1.svg" alt="" width="200" class="img-fluid m-x-auto">
@@ -114,7 +105,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-8">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.
+                                Ofrecemos un servicio seguro en cualquier interfaz, tanto en el apartado web como en la aplicación móvil.
                             </div>
                             <div class="col-md-4">
                                 <img src="images/servicio-2.svg" alt="" width="200" class="img-fluid m-x-auto">
@@ -137,7 +128,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-8">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.
+                                Le garantizamos la total seguridad y confidencialidad de la información a tratar el proceso de gestión y acceso de los horarios.
                             </div>
                             <div class="col-md-4">
                                 <img src="images/servicio-3.svg" alt="" width="200" class="img-fluid m-x-auto m-t-2">

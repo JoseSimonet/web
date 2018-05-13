@@ -1,6 +1,6 @@
 <?php
-define("hostname", "localhost:3306");
-define("user", "proyecto");
+define("hostname", "localhost");
+define("user", "id5746199_proyecto");
 define("password", "admin");
-define("db_name", "manageppp");
+define("db_name", "id5746199_manageppp");
 ?>

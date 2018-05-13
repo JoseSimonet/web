@@ -38,8 +38,7 @@
                 <div class="row">
                     <div class="col-md-8 col-xl-9 wow bounceIn" data-wow-delay=".3s">
                         <h2 class="h3 text-xs-center text-md-left font-weight-bold">Sistema de gestión empresarial</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non error, reprehenderit iusto illo quo? Molestiae, sed blanditiis officiis qui corporis odit dignissimos numquam, nulla quo commodi, alias in maxime.</p>
+                        <p>En ManageYourTime te garantizamos una completa gestión del itinerario tanto en el ámbito laboral como también en el personal. Podrás disfrutar de un sistema personalizado a tus necesidades y preferencias tanto en el apartado web como en el móvil gracias a nuestra aplicación de gestión propia.</p>
                     </div>
                     <div class="col-md-4 col-xl-3 wow bounceIn" data-wow-delay=".6s">
                         <img src="images/agencia.svg" alt="La agencia">
@@ -112,21 +111,18 @@
                 <div class="row">
                     <article class="col-md-4 wow bounceInLeft" data-wow-delay=".3s">
                         <img src="images/servicio-1.svg" alt="Servicio Desarrollo de Aplicaciones Mobiles">
-                        <h3><a href="#"> Desarrollo en su integridad </a></h3>
+                        <h3>Desarrollo en su integridad</h3>
                         <p class="hidden-sm-down">Desarrollamos la aplicación móvil en tu totalidad garantizando la completa personalizanción de la misma. </p>
-                        <a href="#" class="btn btn-secondary hidden-sm-down">Más información</a>
                     </article>
                     <article class="col-md-4 wow bounceInUp" data-wow-delay=".6s">
                         <img src="images/servicio-2.svg" alt="Servicio Consultoría Tecnológica">
-                        <h3><a href="#">Seguridad e integridad</a></h3>
+                        <h3>Seguridad e integridad</h3>
                         <p class="hidden-sm-down">Ofrecemos un servicio seguro en cualquier interfaz, tanto en el apartado web como en la aplicación móvil.</p>
-                        <a href="#" class="btn btn-secondary hidden-sm-down">Más información</a>
                     </article>
                     <article class="col-md-4 wow bounceInRight" data-wow-delay="1s">
                         <img src="images/servicio-3.svg" alt="Servicio Marketing y publicidad Movil">
-                        <h3><a href="#">Respaldo de información</a></h3>
+                        <h3>>Respaldo de información</h3>
                         <p class="hidden-sm-down">Le garantizamos la total seguridad y confidencialidad de la información a tratar el proceso de gestión y acceso de los horarios.</p>
-                        <a href="#" class="btn btn-secondary hidden-sm-down">Más información</a>
                     </article>
                 </div>
             </div>

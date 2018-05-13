@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: application/json; charset=utf-8');
 
-$pdo = new PDO("mysql:dbname=manageppp;host=localhost", "proyecto", "admin");
+$pdo = new PDO("mysql:dbname=id5746199_manageppp;host=localhost", "id5746199_proyecto", "admin");
 
 $accion = (isset($_GET['accion'])) ? $_GET['accion'] : 'leer';
 

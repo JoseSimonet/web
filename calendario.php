@@ -95,7 +95,7 @@ if (!isset($_SESSION['username'])) {
                 $("#modalEventos").modal();
                 $("#txtUserId").val(<?php echo $_SESSION['id'] ?>);
             },
-                events:'http://localhost/web/events.php',
+                events:'https://manageyourtime.000webhostapp.com/events.php',
             eventClick:function(calEvent,jsEvent,view){
                 $('#tituloEvento').html(calEvent.title);
             //Mostrar la información del evento en los inputs
