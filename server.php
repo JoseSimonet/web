@@ -43,6 +43,20 @@ if (isset($_POST['reg_user'])) {
 		array_push($errors, "El nombre de usuario debe contener al menos un dígito");
 	}if (!preg_match('/(?=[A-Z])/', $username)) {
 		array_push($errors, "El nombre de usuario debe contener al menos una mayúscula");
+	}if (preg_match('/(?=[áéíóúÁÉÍÓÚñÑ])/', $username)) {
+		array_push($errors, "No se permiten tildes en el nombre de usuario");
+	}
+	if (preg_match('/(?=[áéíóúÁÉÍÓÚñÑ])/', $password_1) || preg_match('/(?=[áéíóúÁÉÍÓÚñÑ])/', $password_2)) {
+		array_push($errors, "No se permiten tildes en la contraseña");
+	}
+	if (preg_match('/(?=[áéíóúÁÉÍÓÚñÑ])/', $name)) {
+		array_push($errors, "No se permiten tildes en el nombre");
+	}
+	if (preg_match('/(?=[áéíóúÁÉÍÓÚñÑ])/', $surname)) {
+		array_push($errors, "No se permiten tildes en el apellido");
+	}
+	if (preg_match('/(?=[áéíóúÁÉÍÓÚñÑ])/', $email)) {
+		array_push($errors, "No se permiten tildes en el email");
 	}
 
 	//Se comprueba la seguridad de la contraseña.
@@ -112,18 +126,18 @@ if (isset($_POST['login_user'])) {
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$password = mysqli_real_escape_string($db, $_POST['password']);
 
-	$user_check_query = "SELECT * FROM Users WHERE username='$username' OR email='$email_1'";
+	$user_check_query = "SELECT * FROM Users WHERE username='$username'";
 	$result = mysqli_query($db, $user_check_query);
 	$user = mysqli_fetch_assoc($result);
 
 	if (empty($username)) {
-		array_push($errors, "Username is required");
+		array_push($errors, "Nombre de usuario obligatorio");
 	}
 	if (empty($password)) {
-		array_push($errors, "Password is required");
+		array_push($errors, "Contraseña obligatoria");
 	}
 
-	if (($user['username'] == $username) && ($user['password'] == $password) && ($user['status'] == 0)) {
+	if (($user['username'] == $username) && ($user['status'] == 0)) {
 		array_push($errors, "Pendiente de verificar la cuenta.");
 	}
 

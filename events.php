@@ -1,6 +1,6 @@
 <?php
 session_start();
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 
 $pdo = new PDO("mysql:dbname=manageppp;host=localhost", "proyecto", "admin");
 
@@ -55,7 +55,6 @@ case 'modificar':
 		"textColor" => $_POST['textColor'],
 		"start" => $_POST['start'],
 		"end" => $_POST['end'],
-		"userId" => $_POST['userId'],
 	));
 
 	echo json_encode($res);
